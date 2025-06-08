@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from routes import upload
 
+from connection.database import Base, engine
+from models.data import Data
 
 app = FastAPI()
 app.add_middleware(
@@ -14,4 +16,5 @@ app.add_middleware(
  )
 
 app.include_router(upload.router)
+Base.metadata.create_all(bind=engine)
 
