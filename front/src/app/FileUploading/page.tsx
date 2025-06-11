@@ -39,7 +39,7 @@ const Page = () => {
       console.log(result);
     } catch (error) {
       setMessage("Failed to upload file");
-      console.error("Error:", error);
+      console.log(error)
     } finally {
       setLoading(false);
     }
